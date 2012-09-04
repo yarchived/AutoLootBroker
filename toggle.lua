@@ -52,4 +52,6 @@ function dataobj.OnTooltipShow(tooltip)
 end
 
 f:RegisterEvent'PLAYER_LOGIN'
-f:SetScript('OnEvent', function(self, event, ...) self[event](...) end)
+f:SetScript('OnEvent', function(self, event, ...) self[event](self, event, ...) end)
+
+
