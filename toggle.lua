@@ -1,4 +1,4 @@
-local dataobj = LibStub('LibDataBroker-1.1'):NewDataObject('AutoLootBroker', {type = 'launcher',text = ''})
+local dataobj = LibStub('LibDataBroker-1.1'):NewDataObject('AutoLootBroker', {type = 'launcher',text = 'Loot: ...'})
 local f = CreateFrame'Frame'
 local ON = 'Loot: |cff00ff00ON|r'
 local OFF = 'Loot: |cffff0000OFF|r'
