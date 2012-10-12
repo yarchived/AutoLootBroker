@@ -32,20 +32,20 @@ local function isAutoLootOn()
     return _G.GetCVar('autoLootDefault') == '1' 
 end
 
-local already_in_group = false
-f.GROUP_ROSTER_UPDATE = function()
-    local new_state = IsInGroup()
-    if(new_state ~= already_in_group) then
-        already_in_group = new_state
-        toggleAutoLoot(not new_state)
-    end
-end
+-- local already_in_group = false
+-- f.GROUP_ROSTER_UPDATE = function()
+--     local new_state = IsInGroup()
+--     if(new_state ~= already_in_group) then
+--         already_in_group = new_state
+--         toggleAutoLoot(not new_state)
+--     end
+-- end
 
 function f:PLAYER_LOGIN()
     setState(isAutoLootOn())
     self.PLAYER_LOGIN = nil
-    f:RegisterEvent'GROUP_ROSTER_UPDATE'
-    return self:GROUP_ROSTER_UPDATE()
+    -- f:RegisterEvent'GROUP_ROSTER_UPDATE'
+    -- return self:GROUP_ROSTER_UPDATE()
 end
 
 function dataobj.OnClick()
@@ -58,10 +58,7 @@ function dataobj.OnClick()
 end
 
 function dataobj.OnTooltipShow(tooltip)
-    local status
-    if(isAutoLootOn()) then
-        status = true
-    end
+    local status = isAutoLootOn()
     tooltip:AddDoubleLine('|cffff8800AutoLootToggle|r', status and '|cff00ff00ON|r' or '|cffff0000OFF|r')
 end
 
